@@ -4,8 +4,8 @@
   "description": "implementasi membangun restful api dengan hapi.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "lint": "eslint ./"
+    "start": "nodemon ./src/server.js",
+    "lint": "eslint ./src"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +15,9 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.0",
     "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.2",
+    "nanoid": "^5.0.3"
   }
 }
