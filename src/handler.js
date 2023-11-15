@@ -1,5 +1,7 @@
 const notes = require("./notes");
+const { nanoid } = require("nanoid");
 
+// ? fungsi untuk get all notes
 const getAllNotesHandler = () => ({
   status: "success",
   data: {
@@ -7,20 +9,21 @@ const getAllNotesHandler = () => ({
   },
 });
 
+// ? fungsi untuk tambah notes
 const addNoteHandler = (request, h) => {
   const { title, tags, body } = request.payload;
 
   const id = nanoid(16);
-  const createAt = new Date().toISOString();
-  const updateAt = createAt;
+  const createdAt = new Date().toISOString();
+  const updatedAt = createdAt;
 
   const newNote = {
     title,
     tags,
     body,
     id,
-    createAt,
-    updateAt,
+    createdAt,
+    updatedAt,
   };
 
   notes.push(newNote);
@@ -47,4 +50,7 @@ const addNoteHandler = (request, h) => {
   return response;
 };
 
-module.exports = { addNoteHandler, getAllNotesHandler };
+module.exports = {
+  addNoteHandler,
+  getAllNotesHandler,
+};
