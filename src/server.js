@@ -4,7 +4,7 @@ const routes = require("./routes");
 const init = async () => {
   const server = Hapi.server({
     port: 5000,
-    host: 'localhost',
+    host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
     // ? baris kode dibawah ini untuk mengatasi masalah cors
     routes: {
       cors: {
